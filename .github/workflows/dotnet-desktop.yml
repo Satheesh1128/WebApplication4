@@ -2,7 +2,7 @@ name: XPDEPLOY-Build
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "master" ]
 
 jobs:
 
@@ -25,6 +25,15 @@ jobs:
       
     - name: Create Build Directory
       run: mkdir _build
+      
+    - name: Create Build Directory _build1
+      run: mkdir _build1
     
     - name: Build Application
       run: msbuild WebApplication4.sln /nologo /nr:false /p:DeployOnBuild=true /p:DeployDefaultTarget=WebPublish /p:WebPublishMethod=FileSystem /p:DeleteExistingFiles=True /p:platform="Any CPU" /p:configuration="Release" /p:PublishUrl="../_build"
+      
+    - name: Upload artifact
+      uses: actions/upload-artifact@v1.0.0
+      with:
+        name: Build Output
+        path: "./_build"
