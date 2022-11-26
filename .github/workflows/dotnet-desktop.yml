@@ -34,12 +34,12 @@ jobs:
       with:
         name: downloadfiles
         path: obj\Release\Package
-        
-    - uses: shallwefootball/s3-upload-action@master
+
+    - uses: hkusu/s3-upload-action@v2
       name: Upload S3
-      id: S3
       with:
-          aws_key_id: ${{ secrets.AWS_KEY_ID }}
-          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
-          aws_bucket: ${{ secrets.AWS_BUCKET }}
-          source_dir: build
+          aws-access-key-id: ${{ secrets.AWS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: 'ap-southeast-1'
+          aws-bucket: ${{ secrets.AWS_BUCKET }}
+          file-path: build
