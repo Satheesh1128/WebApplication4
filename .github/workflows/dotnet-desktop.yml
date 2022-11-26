@@ -34,3 +34,12 @@ jobs:
       with:
         name: downloadfiles
         path: build
+        
+    - name: Upload S3
+      uses: shallwefootball/upload-s3-action@v1.2.0
+      with:
+        aws_key_id: AKIARZ47B5GIYKBYIH3S
+        aws_secret_access_key: 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
+        aws_bucket: useasttesting
+        source_dir: build
+        # destination_dir: 123
