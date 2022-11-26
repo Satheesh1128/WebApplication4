@@ -33,4 +33,4 @@ jobs:
       uses: actions/upload-artifact@v3.1.1
       with:
         name: downloadfiles
-        path: obj\Release\Package
+        path: obj\Release\Package\WebApplication4.zip
