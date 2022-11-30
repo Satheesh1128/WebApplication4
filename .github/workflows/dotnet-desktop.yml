@@ -36,15 +36,9 @@ jobs:
         path: obj\Release\Package
 
     - name: Upload artifact
-      uses: zoispag/action-s3-upload-artifact@v1
-      id: s3
+      uses: shallwefootball/s3-upload-action@master
       with:
-          access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          bucket: ${{ secrets.AWS_BUCKET }}
-          bucket_root: Artifacts
-          key: my-artifact
-          path: obj/Release/Package/
-
-    - name: Output path
-      run: echo ${{ steps.s3.outputs.object_path }}
+          aws_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
+          aws_bucket: ${{ secrets.AWS_BUCKET }}
+          source_dir: 'build'
