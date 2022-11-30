@@ -44,7 +44,7 @@ jobs:
           bucket: ${{ secrets.AWS_BUCKET }}
           bucket_root: Artifacts
           key: my-artifact
-          path: path/to/artifact/
+          path: obj/Release/Package/
 
     - name: Output path
       run: echo ${{ steps.s3.outputs.object_path }}
