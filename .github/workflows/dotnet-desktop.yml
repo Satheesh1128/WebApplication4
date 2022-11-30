@@ -18,29 +18,6 @@ jobs:
       
     - name: setup-msbuild
       uses: microsoft/setup-msbuild@v1.1.3  
-  
-      
-    - name: Navigate to Workspace
-      run: cd $GITHUB_WORKSPACE
-      
-    - name: Create Build Directory
-      run: mkdir build
-    
-    - name: Build Application
-      run: msbuild WebApplication4.sln /nologo /nr:false /p:DeployOnBuild=true /p:DeployDefaultTarget=WebPublish /p:WebPublishMethod=FileSystem /p:DeleteExistingFiles=True /p:platform="Any CPU" /p:configuration="Release" /p:PublishUrl="build"
 
-    - name: Upload a Build Artifact
-      uses: actions/upload-artifact@v3.1.1
-      with:
-        name: downloadfiles
-        path: obj\Release\Package
-
-    - name: Push a directory to another repository
-      uses: datalbry/copy_folder_to_another_repo_action@1.0.1
-      with:
-        source_folder: obj\Release\Package
-        destination_repo: WebApplication4
-        user_email: satheeshkumar.a1128@gmail.com
-        user_name: Satheesh1128
-        destination_branch: 'release'
-        commit_msg: 'Commit Test'
+    - name: AWS cli install action
+      uses: chrislennon/action-aws-cli@1.1
