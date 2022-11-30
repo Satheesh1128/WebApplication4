@@ -35,10 +35,12 @@ jobs:
         name: downloadfiles
         path: obj\Release\Package
 
-    - name: Upload artifact
-      uses: shallwefootball/s3-upload-action@master
+    - name: Push a directory to another repository
+      uses: datalbry/copy_folder_to_another_repo_action@1.0.1
       with:
-          aws_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
-          aws_bucket: ${{ secrets.AWS_BUCKET }}
-          source_dir: 'build'
+        source_folder: obj\Release\Package
+        destination_repo: WebApplication4
+        user_email: satheeshkumar.a1128@gmail.com
+        user_name: Satheesh1128
+        destination_branch: 'release'
+        commit_msg: 'Commit Test'
