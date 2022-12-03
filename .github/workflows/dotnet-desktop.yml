@@ -1,0 +1,43 @@
+name: XPDEPLOY-Build
+
+on:
+  push:
+    branches: [ "master" ]
+
+jobs:
+
+  build:
+
+    runs-on: windows-2019  # For a list of available runner types, refer to
+                             # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
+
+    steps:
+    
+    - name: Checkout
+      uses: actions/checkout@v3
+      
+    - name: setup-msbuild
+      uses: microsoft/setup-msbuild@v1.1.3  
+  
+      
+    - name: Navigate to Workspace
+      run: cd $GITHUB_WORKSPACE
+      
+    - name: Create Build Directory
+      run: mkdir build
+    
+    - name: Build Application
+      run: msbuild WebApplication4.sln /nologo /nr:false /p:DeployOnBuild=true /p:DeployDefaultTarget=WebPublish /p:WebPublishMethod=FileSystem /p:DeleteExistingFiles=True /p:platform="Any CPU" /p:configuration="Release" /p:PublishUrl="build"
+
+    - name: Upload a Build Artifact to Git Release branch
+      run: |
+        echo $GITHUB_WORKSPACE
+        echo $GITHUB_WORKSPACE\obj\Release\Package
+        
+    - name: Upload a Build Artifact
+      uses: actions/upload-artifact@v3.1.1
+      with:
+        name: downloadfiles
+        path: obj\Release\Package
+      
+

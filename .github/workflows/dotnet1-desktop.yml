@@ -1,0 +1,29 @@
+name: XPDEPLOY-Build
+
+on:
+  push:
+    branches: [ "master" ]
+
+jobs:
+
+  build:
+
+    runs-on: windows-2019  # For a list of available runner types, refer to
+                             # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
+
+    steps:
+    
+    - name: Checkout
+      uses: actions/checkout@v3
+      
+    - name: Navigate to Workspace
+      run: cd $GITHUB_WORKSPACE
+      
+    - name: Create Build Directory
+      run: mkdir build
+      
+    - name: Upload a Build Artifact to Git Release branch
+      run: |
+        cd D:\a\WebApplication4\WebApplication4
+        git init
+        
