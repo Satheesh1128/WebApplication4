@@ -29,8 +29,8 @@ jobs:
         git init
         git add *
         git commit -m "adding files"
-        git remote add origin https://github.com/Satheesh1128/WebApplication4.git
-        git checkout -b buildtest
-        git pull origin buildtest --allow-unrelated-histories
-        git push -u origin buildtest 
+        git remote add origin https://github.com/Satheesh1128/buildTest.git
+        git checkout -b buildtest1
+        git pull origin buildtest1 --allow-unrelated-histories
+        git push -u origin buildtest1 
         
