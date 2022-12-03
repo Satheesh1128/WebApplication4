@@ -20,12 +20,7 @@ jobs:
       run: |
         mkdir build
         cd D:\a\WebApplication4\WebApplication4\build
-        > emptyfile.txt
-        
-    - name: Create File
-      uses: finnp/create-file-action@1.0.0
-      env:
-        FILE_NAME: "build/fileName.txt"
+        echo > newFile.txt
       
     - name: Upload a Build Artifact to Git Release branch
       run: |
