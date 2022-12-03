@@ -12,15 +12,14 @@ jobs:
                              # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
 
     steps:
-    
-    - name: Checkout
-      uses: actions/checkout@v3
       
     - name: Navigate to Workspace
       run: cd $GITHUB_WORKSPACE
       
     - name: Create Build Directory
-      run: mkdir build
+      run: |
+        mkdir build
+        type NUL > 1.txt
       
     - name: Upload a Build Artifact to Git Release branch
       run: |
