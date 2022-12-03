@@ -14,6 +14,7 @@ jobs:
       run: |
         mkdir build
         powershell New-Item D:\a\WebApplication4\WebApplication4\build\Test1.txt
+        powershell New-Item D:\a\WebApplication4\WebApplication4\build\Test2.txt
       
     - name: Upload a Build Artifact to Git Release branch
       run: |
