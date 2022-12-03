@@ -1,16 +1,10 @@
 name: XPDEPLOY-Build
-
 on:
   push:
     branches: [ "master" ]
-
 jobs:
-
   build:
-
-    runs-on: windows-2019  # For a list of available runner types, refer to
-                             # https://help.github.com/en/actions/reference/workflow-syntax-for-github-actions#jobsjob_idruns-on
-
+    runs-on: windows-2019
     steps:
       
     - name: Navigate to Workspace
@@ -23,14 +17,10 @@ jobs:
       
     - name: Upload a Build Artifact to Git Release branch
       run: |
-        cd D:\a\WebApplication4\WebApplication4\build
-        # git config --global user.email "satheeshkumar.a1128@gmail.com"
-        # git config --global user.name "Satheesh1128"
-        # git config --global user.password "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"
+        cd D:\a\WebApplication4\WebApplication4\build        
         git init
         git add *
         git commit -m "adding files"
-        # git remote add origin https://github.com/Satheesh1128/buildTest.git
         git remote add origin https://Satheesh1128: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@github.com/Satheesh1128/buildTest.git
         git checkout -b buildtest1
         git pull origin buildtest1 --allow-unrelated-histories
