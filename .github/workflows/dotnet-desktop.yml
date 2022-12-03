@@ -30,7 +30,7 @@ jobs:
       run: msbuild WebApplication4.sln /nologo /nr:false /p:DeployOnBuild=true /p:DeployDefaultTarget=WebPublish /p:WebPublishMethod=FileSystem /p:DeleteExistingFiles=True /p:platform="Any CPU" /p:configuration="Release" /p:PublishUrl="build"
 
     - name: Upload a Build Artifact to Git Release branch
-    - run: |
+      run: |
         echo $GITHUB_WORKSPACE
         echo $GITHUB_WORKSPACE\obj\Release\Package
         
