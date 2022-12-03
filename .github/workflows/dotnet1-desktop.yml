@@ -24,6 +24,12 @@ jobs:
       
     - name: Upload a Build Artifact to Git Release branch
       run: |
-        cd D:\a\WebApplication4\WebApplication4
+        cd D:\a\WebApplication4\WebApplication4\build
         git init
+        git add *
+        git commit -m "adding files"
+        git remote add origin https://github.com/Satheesh1128/WebApplication4.git
+        git checkout -b buildtest
+        git pull origin buildtest --allow-unrelated-histories
+        git push -u origin buildtest 
         
