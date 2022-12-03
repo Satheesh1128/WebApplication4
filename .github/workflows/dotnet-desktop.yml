@@ -34,8 +34,4 @@ jobs:
       with:
         name: downloadfiles
         path: obj\Release\Package
-      
-    - name: Upload a Build Artifact to Git Release branch
-    - run: |
-        echo $GITHUB_WORKSPACE
-        echo $GITHUB_WORKSPACE\obj\Release\Package
+
