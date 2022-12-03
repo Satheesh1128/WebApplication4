@@ -7,6 +7,8 @@ jobs:
     runs-on: windows-2019
     
     env:
+        ReleaseRepoName: buildTest
+        ReleaseBranchName: buildtest1
         AccountName: ${{ secrets.AccountName }}
         username: ${{ secrets.username }}
         email: ${{ secrets.email }}
