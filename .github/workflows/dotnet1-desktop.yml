@@ -30,8 +30,8 @@ jobs:
         git init
         git add *
         git commit -m "adding files"
-        # git remote add origin https://github.com/Satheesh1128/buildTest.git
-        git remote add origin https://Satheesh1128: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@github.com/Satheesh1128/buildTest.git
+        git remote add origin https://github.com/Satheesh1128/buildTest.git
+        # git remote add origin https://Satheesh1128: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@github.com/Satheesh1128/buildTest.git
         git checkout -b buildtest1
         git pull origin buildtest1 --allow-unrelated-histories
         git push -u origin buildtest1 
