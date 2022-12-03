@@ -24,6 +24,6 @@ jobs:
       
     - name: Upload a Build Artifact to Git Release branch
       run: |
-        cd $GITHUB_WORKSPACE\build
+        cd D:\a\WebApplication4\WebApplication4
         git init
         
