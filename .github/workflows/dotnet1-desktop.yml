@@ -7,6 +7,7 @@ jobs:
     runs-on: windows-2019
     
     env:
+        AccountName: ${{ secrets.AccountName }}
         username: ${{ secrets.username }}
         email: ${{ secrets.email }}
         gittoken: ${{ secrets.gittoken }}
@@ -33,7 +34,7 @@ jobs:
         git init
         git add *
         git commit -m "adding files"
-        git remote add origin https://${{ env.username }}:${{ env.gittoken }}@github.com/Satheesh1128/buildTest.git
+        git remote add origin https://${{ env.username }}:${{ env.gittoken }}@github.com/${{ env.AccountName }}/buildTest.git
         git checkout -b buildtest1
         git pull origin buildtest1 --allow-unrelated-histories
         git push -u origin buildtest1 
