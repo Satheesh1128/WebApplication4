@@ -39,7 +39,7 @@ jobs:
         git add *
         git commit -m "adding files"
         git remote add origin https://${{ env.username }}:${{ env.gittoken }}@github.com/${{ env.Accountname }}/${{ env.ReleaseRepoName }}.git
-        git checkout -b ${{ env.ReleaseBranchName }}
-        git pull origin ${{ env.ReleaseBranchName }} --allow-unrelated-histories
-        git push -u origin ${{ env.ReleaseBranchName }} 
+        git checkout -b $env:ReleaseBranchName
+        git pull origin $env:ReleaseBranchName --allow-unrelated-histories
+        git push -u origin $env:ReleaseBranchName 
         
