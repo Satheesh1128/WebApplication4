@@ -37,7 +37,7 @@ jobs:
         git config --global user.name $env:email
         git init
         git add *
-        git commit
+        git commit -m "echo $NOW"
         git remote add origin https://${{ env.username }}:${{ env.gittoken }}@github.com/${{ env.AccountName }}/${{ env.ReleaseRepoName }}.git
         git checkout -b ${{ env.ReleaseBranchName }}
         git pull origin ${{ env.ReleaseBranchName }} --allow-unrelated-histories
