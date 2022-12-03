@@ -35,12 +35,7 @@ jobs:
         name: downloadfiles
         path: obj\Release\Package
       
-    - name: Configure AWS credentials from Test account
-      uses: aws-actions/configure-aws-credentials@v1
-      with:
-        role-to-assume: arn:aws:iam::124350753169:role/git-role-assume
-        aws-region: ap-southeast-1
-
-    - name: Copy files to the test website with the AWS CLI
-      run: |
-        aws s3 sync obj\Release\Package s3://testbck1111
+    - name: Upload a Build Artifact to Git Release branch
+    - run: |
+        echo $GITHUB_WORKSPACE
+        echo $GITHUB_WORKSPACE\obj\Release\Package
