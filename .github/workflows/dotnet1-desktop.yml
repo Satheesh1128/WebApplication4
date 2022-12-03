@@ -27,10 +27,11 @@ jobs:
         powershell New-Item D:\a\WebApplication4\WebApplication4\build\Test2.txt
         powershell New-Item D:\a\WebApplication4\WebApplication4\build\Test3.txt
         powershell New-Item D:\a\WebApplication4\WebApplication4\build\Test4.txt
+        powershell New-Item D:\a\WebApplication4\WebApplication4\build\Test5.txt
       
     - name: Upload a Build Artifact to Git Release branch
       run: |
-        cd D:\a\WebApplication4\WebApplication4\build
+        cd build
         git config --global user.email $env:username
         git config --global user.name $env:email
         git init
