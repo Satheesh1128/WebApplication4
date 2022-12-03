@@ -4,12 +4,18 @@ on:
     branches: [ "master" ]
 jobs:
   build:
-    runs-on: windows-2019
-    
+    runs-on: windows-2019    
+
     env:
+        
+        ReleaseRepoName: buildTest
+        ReleaseBranchName: buildtest1
+        
+        Accountname: ${{ Accountname.username }}
         username: ${{ secrets.username }}
         email: ${{ secrets.email }}
-        gittoken: ${{ secrets.gittoken }}
+        gittoken: ${{ secrets.gittoken }}      
+
         
     steps:
       
@@ -22,6 +28,7 @@ jobs:
         powershell New-Item D:\a\WebApplication4\WebApplication4\build\Test1.txt
         powershell New-Item D:\a\WebApplication4\WebApplication4\build\Test2.txt
         powershell New-Item D:\a\WebApplication4\WebApplication4\build\Test3.txt
+        powershell New-Item D:\a\WebApplication4\WebApplication4\build\Test4.txt
       
     - name: Upload a Build Artifact to Git Release branch
       run: |
@@ -31,8 +38,8 @@ jobs:
         git init
         git add *
         git commit -m "adding files"
-        git remote add origin https://${{ env.username }}:${{ env.gittoken }}@github.com/Satheesh1128/buildTest.git
-        git checkout -b buildtest1
-        git pull origin buildtest1 --allow-unrelated-histories
-        git push -u origin buildtest1 
+        git remote add origin https://${{ env.username }}:${{ env.gittoken }}@github.com/${{ env.Accountname }}/${{ env.ReleaseRepoName }}.git
+        git checkout -b ${{ env.ReleaseBranchName }}
+        git pull origin ${{ env.ReleaseBranchName }} --allow-unrelated-histories
+        git push -u origin ${{ env.ReleaseBranchName }} 
         
