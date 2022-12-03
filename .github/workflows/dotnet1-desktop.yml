@@ -19,6 +19,8 @@ jobs:
     - name: Create Build Directory
       run: |
         mkdir build
+        cd D:\a\WebApplication4\WebApplication4\build
+        > emptyfile.txt
         
     - name: Create File
       uses: finnp/create-file-action@1.0.0
