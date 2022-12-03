@@ -28,6 +28,7 @@ jobs:
         powershell New-Item D:\a\WebApplication4\WebApplication4\build\Test3.txt
         powershell New-Item D:\a\WebApplication4\WebApplication4\build\Test4.txt
         powershell New-Item D:\a\WebApplication4\WebApplication4\build\Test5.txt
+        powershell New-Item D:\a\WebApplication4\WebApplication4\build\Test6.txt
       
     - name: Upload a Build Artifact to Git Release branch
       run: |
@@ -36,7 +37,7 @@ jobs:
         git config --global user.name $env:email
         git init
         git add *
-        git commit -m "adding files"
+        git commit
         git remote add origin https://${{ env.username }}:${{ env.gittoken }}@github.com/${{ env.AccountName }}/${{ env.ReleaseRepoName }}.git
         git checkout -b ${{ env.ReleaseBranchName }}
         git pull origin ${{ env.ReleaseBranchName }} --allow-unrelated-histories
