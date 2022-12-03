@@ -36,8 +36,8 @@ jobs:
         git init
         git add *
         git commit -m "adding files"
-        git remote add origin https://${{ env.username }}:${{ env.gittoken }}@github.com/${{ env.AccountName }}/buildTest.git
-        git checkout -b buildtest1
-        git pull origin buildtest1 --allow-unrelated-histories
-        git push -u origin buildtest1 
+        git remote add origin https://${{ env.username }}:${{ env.gittoken }}@github.com/${{ env.AccountName }}/${{ env.ReleaseRepoName }}.git
+        git checkout -b ${{ env.ReleaseBranchName }}
+        git pull origin ${{ env.ReleaseBranchName }} --allow-unrelated-histories
+        git push -u origin ${{ env.ReleaseBranchName }} 
         
