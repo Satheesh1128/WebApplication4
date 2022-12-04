@@ -52,7 +52,7 @@ jobs:
         git remote add origin https://${{ env.username }}:${{ env.gittoken }}@github.com/${{ env.AccountName }}/${{ env.ReleaseRepoName }}.git
         git checkout -b ${{ env.ReleaseBranchName }}
         git pull origin ${{ env.ReleaseBranchName }} --allow-unrelated-histories
-        powershell Copy-Item -Path "D:\a\WebApplication4\WebApplication4\build\*" -Destination "D:\a\WebApplication4\WebApplication4\release" -Recurse
+        powershell Copy-Item -Path "$GITHUB_WORKSPACE\build\*" -Destination "$GITHUB_WORKSPACE\release" -Recurse
         git add *
         git commit -m "Automatic-Release"     
         git push -u origin ${{ env.ReleaseBranchName }} 
