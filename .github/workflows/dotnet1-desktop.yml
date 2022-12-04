@@ -32,8 +32,9 @@ jobs:
         powershell New-Item D:\a\WebApplication4\WebApplication4\build\Test11.txt
         
     - name: Build Application
-      run: msbuild WebApplication4.sln /nologo /nr:false /p:DeployOnBuild=true /p:DeployDefaultTarget=WebPublish /p:WebPublishMethod=FileSystem /p:DeleteExistingFiles=True /p:platform="Any CPU" /p:configuration="Release" /p:PublishUrl="build"
-        
+      run: |
+        msbuild WebApplication4.sln /nologo /nr:false /p:DeployOnBuild=true /p:DeployDefaultTarget=WebPublish /p:WebPublishMethod=FileSystem /p:DeleteExistingFiles=True /p:platform="Any CPU" /p:configuration="Release" /p:PublishUrl="build"
+        powershell New-Item D:\a\WebApplication4\WebApplication4\build\Test11.txt
     - name: Save Build Artifact
       uses: actions/upload-artifact@v3.1.1
       with:
