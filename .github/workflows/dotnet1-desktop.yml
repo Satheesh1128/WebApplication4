@@ -30,6 +30,17 @@ jobs:
       run: |
         mkdir build
         # powershell New-Item D:\a\WebApplication4\WebApplication4\build\Test11.txt
+
+    - name: Git Release Branch
+      run: |
+        cd build
+        git config --global user.email $env:username
+        git config --global user.name $env:email
+        git init
+        git remote add origin https://${{ env.username }}:${{ env.gittoken }}@github.com/${{ env.AccountName }}/${{ env.ReleaseRepoName }}.git
+        git checkout -b ${{ env.ReleaseBranchName }}
+        git pull origin ${{ env.ReleaseBranchName }} --allow-unrelated-histories
+        
         
     - name: Build Application
       run: |
@@ -43,14 +54,7 @@ jobs:
         
     - name: Upload a Build Artifact to Git Release branch
       run: |
-        cd build
-        git config --global user.email $env:username
-        git config --global user.name $env:email
-        git init
         git add *
-        git commit -m "Automatic-Release"
-        git remote add origin https://${{ env.username }}:${{ env.gittoken }}@github.com/${{ env.AccountName }}/${{ env.ReleaseRepoName }}.git
-        git checkout -b ${{ env.ReleaseBranchName }}
-        git pull origin ${{ env.ReleaseBranchName }} --allow-unrelated-histories
+        git commit -m "Automatic-Release"     
         git push -u origin ${{ env.ReleaseBranchName }} 
         
