@@ -8,7 +8,7 @@ jobs:
     
     env:
         ReleaseRepoName: buildTest
-        ReleaseBranchName: buildtest1
+        ReleaseBranchName: buildtest3
         AccountName: ${{ secrets.AccountName }}
         username: ${{ secrets.username }}
         email: ${{ secrets.email }}
