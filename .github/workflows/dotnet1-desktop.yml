@@ -60,6 +60,6 @@ jobs:
     - name: Save release Artifact
       uses: actions/upload-artifact@v3.1.1
       with:
-        name: Saved-Build-Artifact
+        name: Saved-Release-Artifact
         path: release
         
