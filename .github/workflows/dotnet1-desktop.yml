@@ -29,13 +29,12 @@ jobs:
     - name: Create Build Directory
       run: |
         mkdir build
-        mkdir release
-        # powershell New-Item D:\a\WebApplication4\WebApplication4\build\Test11.txt        
+        mkdir release        
         
     - name: Build Application
       run: |
         msbuild WebApplication4.sln /nologo /nr:false /p:DeployOnBuild=true /p:DeployDefaultTarget=WebPublish /p:WebPublishMethod=FileSystem /p:DeleteExistingFiles=True /p:platform="Any CPU" /p:configuration="Release" /p:PublishUrl="build"
-        powershell New-Item D:\a\WebApplication4\WebApplication4\build\Test11.txt
+        powershell New-Item $GITHUB_WORKSPACE\Test13.txt
         
     - name: Save Build Artifact
       uses: actions/upload-artifact@v3.1.1
