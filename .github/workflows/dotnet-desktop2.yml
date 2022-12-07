@@ -14,4 +14,3 @@ jobs:
     - name: Checkout
         run |
         powershell Get-Package
-
