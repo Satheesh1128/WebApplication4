@@ -10,4 +10,5 @@ jobs:
     
     - name: Create Build Directory
       run: |
-        powershell Get-Package
+        powershell Get-Package *AWS*
+        powershell aws configure
