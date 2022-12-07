@@ -22,5 +22,6 @@ jobs:
           aws-region: ap-southeast-1
       
       - run: |
+         powershell Get-ChildItem
          aws deploy push --application-name Test --s3-location s3://local-codedeploy/test/test.zip --ignore-hidden-files
       
