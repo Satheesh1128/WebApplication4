@@ -45,8 +45,8 @@ jobs:
     - name: Upload a Build Artifact to Git Release branch
       run: |
         cd release
-        #git config --global user.email $env:username
-        #git config --global user.name $env:email
+        # git config --global user.email $env:username
+        # git config --global user.name $env:email
         git init
         git remote add origin https://${{ env.username }}:${{ env.gittoken }}@github.com/${{ env.AccountName }}/${{ env.ReleaseRepoName }}.git
         git checkout -b ${{ env.ReleaseBranchName }}
