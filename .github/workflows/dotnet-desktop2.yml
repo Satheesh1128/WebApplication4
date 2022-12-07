@@ -12,10 +12,10 @@ jobs:
       run: |
         powershell Get-Package *AWS*
         powershell aws configure --profile Test
-        AKIARZ47B5GISCAUTUDL
-        fiCEPII0tThbtiCn27WGvcIxITZ3KwmsA8wLoqHj
-        ap-southeast-1
-        json
+        powershell AKIARZ47B5GISCAUTUDL
+        powershell fiCEPII0tThbtiCn27WGvcIxITZ3KwmsA8wLoqHj
+        powershell ap-southeast-1
+        powershell json
         
     - name: Create Build Directory
       run: |
