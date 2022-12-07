@@ -1,0 +1,17 @@
+name: AWS CLI
+
+on:
+  push:
+    branches: [ "master" ]
+
+jobs:
+
+  build:
+
+    runs-on: windows-latest 
+
+    steps:
+    - name: Checkout
+        run |
+        powershell Get-Package
+
