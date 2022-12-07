@@ -1,16 +1,13 @@
-name: AWS CLI
-
+name: AWSCLI
 on:
   push:
     branches: [ "master" ]
-
 jobs:
-
   build:
-
-    runs-on: windows-latest 
-
+    runs-on: windows-2019
+        
     steps:
-    - name: Checkout
-        run |
+    
+    - name: Create Build Directory
+      run: |
         powershell Get-Package
