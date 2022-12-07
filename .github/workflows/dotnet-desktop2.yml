@@ -8,11 +8,8 @@ jobs:
         
     steps:
     
-      - name: Create Build Directory
-        run: |
-         mkdir build
-         cd build
-         powershell New-Item 1Test131.txt
+      - name: Checkout
+        uses: actions/checkout@v3
         
       - uses: aws-actions/setup-sam@v2
       - uses: aws-actions/configure-aws-credentials@v1
