@@ -12,7 +12,7 @@ jobs:
         run: |
          mkdir build
          cd build
-         powershell New-Item Test13.txt
+         powershell New-Item Test131.txt
         
       - uses: aws-actions/setup-sam@v2
       - uses: aws-actions/configure-aws-credentials@v1
