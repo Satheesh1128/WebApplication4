@@ -8,16 +8,19 @@ jobs:
         
     steps:
     
-    - name: Create Build Directory
-      run: |
-        powershell Get-Package *AWS*
-        powershell aws configure --profile Test
-        powershell AKIARZ47B5GISCAUTUDL
-        powershell fiCEPII0tThbtiCn27WGvcIxITZ3KwmsA8wLoqHj
-        powershell ap-southeast-1
-        powershell json
+      - name: Create Build Directory
+        run: |
+         mkdir build
+         cd build
+         powershell New-Item Test13.txt
         
-    - name: Create Build Directory
-      run: |
-        mkdir build
-        powershell New-Item Test13.txt
+      - uses: aws-actions/setup-sam@v2
+      - uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ap-southeast-1
+      
+      - run: |
+         aws deploy push --application-name Test --s3-location s3://local-codedeploy/test/test.zip --ignore-hidden-files
+      
