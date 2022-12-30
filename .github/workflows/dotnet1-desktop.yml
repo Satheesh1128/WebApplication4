@@ -34,6 +34,8 @@ jobs:
     - name: Build Application
       run: |
         msbuild WebApplication4.sln /nologo /nr:false /p:DeployOnBuild=true /p:DeployDefaultTarget=WebPublish /p:WebPublishMethod=FileSystem /p:DeleteExistingFiles=True /p:platform="Any CPU" /p:configuration="Release" /p:PublishUrl="build"
+        cd build
+        powershell Get-ChildItem
         powershell New-Item D:\a\WebApplication4\WebApplication4\build\Test13.txt
         
     - name: Save Build Artifact
