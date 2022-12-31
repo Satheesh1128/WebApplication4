@@ -10,7 +10,7 @@ on:
 
 jobs:
   build:
-    name: Build and analyze1
+    name: Build and analyze
     runs-on: windows-2019
     steps:
       - name: Set up JDK 11
