@@ -54,6 +54,6 @@ jobs:
         shell: powershell
         run: |
           .\.sonar\scanner\dotnet-sonarscanner begin /k:"Satheesh1128_WebApplication4" /o:"satheesh1128" /d:sonar.login="${{ secrets.SONAR_TOKEN }}" /d:sonar.host.url="https://sonarcloud.io"
-          #dotnet build
-          msbuild WebApplication4.sln -t:rebuild -verbosity:diag -property:Configuration=Release
+          dotnet build
+          #msbuild WebApplication4.sln -t:rebuild -verbosity:diag -property:Configuration=Release
           .\.sonar\scanner\dotnet-sonarscanner end /d:sonar.login="${{ secrets.SONAR_TOKEN }}"
